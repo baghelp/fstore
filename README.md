@@ -1,19 +1,10 @@
 # synology-flickr-folder-uploader
-Simple script to upload a folder of photos/videos to a new set in Flickr
+Simple script to upload files or directories to flickr, by appending them to a
+photo or video file
 
-I have used several scripts to upload photos from my Synology NAS to Flickr, but recently all of them failed (due to a change in authentication api).
-
-
-So I cooked my own script, based in the work of  https://github.com/sybrenstuvel/flickrapi and https://github.com/jamesmstone
-/flickr-uploadr
+This tool is very heavily based on alfem's https://github.com/alfem/synology-flickr-folder-uploader
 
 # Installation 
-
-I have tested these steps in my DS212j, but this procedure probably work in many other models.
-
-* Connect via SSH to your Synology NAS
-
-  ssh admin@mynas
 
 * Create a folder for the flickr api
 
@@ -45,7 +36,7 @@ I have tested these steps in my DS212j, but this procedure probably work in many
   
   Second parameter = Tag for the photos 
 
-* On first run, the script will show an URL you need to visit in order to authorize it.Open the url in your brwoser, authorize the script and copy the code shown.   
+* On first run, the script will show an URL you need to visit in order to authorize it. Open the url in your brwoser, authorize the script and copy the code shown.   
 
-You can install the api system wide and avoid setting the PYTHONPATH, but I prefer to keep my NAS system clean.
+You can install the api system wide and avoid setting the PYTHONPATH, but I prefer to keep my system clean.
 

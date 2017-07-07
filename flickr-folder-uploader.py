@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 # Simple Flickr folder uploader
-# Author: Alfonso E.M. <alfonso@el-magnifico.org>
-# Inspired in https://github.com/sybrenstuvel/flickrapi and https://github.com/jamesmstone/flickr-uploadr
+# Author: baghelp <ankmike5@gmail.com>
+# Heavily based on <https://github.com/alfem/synology-flickr-folder-uploader>
 
 # Get an api key and an api secret: https://www.flickr.com/services/apps/create/apply
 # Put those values in these variables
@@ -13,7 +13,7 @@ API_SECRET = "paste-your-api-secret-here"
 # Start this script. First time it shows an URL. Open it with your browser and authorize the script.
 
 # Once authorized, script will store a token in user home directory. Change it if desired:
-#TOKEN_CACHE='./token'
+TOKEN_CACHE='./token'
 
 import flickrapi
 import os
