@@ -1,7 +1,9 @@
-# synology-flickr-folder-uploader
+# fstore
 Simple script to upload files or directories to flickr, by appending them to a
 photo or video file
 
+---STILL UNDER CONSTRUCTION---
+      ---DO NOT USE!!!---
 This tool is very heavily based on alfem's https://github.com/alfem/synology-flickr-folder-uploader
 
 # Installation 
@@ -20,17 +22,17 @@ This tool is very heavily based on alfem's https://github.com/alfem/synology-fli
 
 * Download the script (use your favourite browser, or wget command in your Synology)
 
-  wget https://raw.githubusercontent.com/alfem/synology-flickr-folder-uploader/master/flickr-folder-uploader.py
+  wget https://raw.githubusercontent.com/baghelp/fstore/master/fstore.py
  
 * Give it execution permissions
 
-  chmod u+x flickr-folder-uploader.py
+  chmod u+x fstore.py
 
 * Create a new app in your Flickr account: https://www.flickr.com/services/apps/create/apply and jot down api_key and api_secret
 * Edit the script and adjust the api_key, api_secreet and paths at the begining
 * Run it!
 
-  ./flickr-folder-uploader.py /volume1/alfem/Pics/Coches/ coches
+  ./fstor.py /volume1/alfem/Pics/Coches/ coches
 
   First parameter = Folder to upload
   
