@@ -2,9 +2,12 @@
 Simple script to upload files or directories to flickr, by appending them to a
 photo or video file
 
----STILL UNDER CONSTRUCTION---
-      ---DO NOT USE!!!---
 This tool is very heavily based on alfem's https://github.com/alfem/synology-flickr-folder-uploader
+
+
+---STILL UNDER CONSTRUCTION---
+
+      ---DO NOT USE!!!---
 
 # Installation 
 
