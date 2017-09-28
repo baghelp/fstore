@@ -15,7 +15,7 @@ from shutil import copyfile
 # Put those values in these variables
 API_KEY = "b164a21528285942966a9d5779c5cfc9"
 API_SECRET = "58ad8ff08f9b3cc7"
-TEMP_FOLDER = "/home/baghelp/fstoreTempFiles/"
+TEMP_FOLDER = "/home/michael/projects/fstore/fstoreTempFiles/"
 
 # Start this script. First time it shows an URL. Open it with your browser and
 # authorize the script. Once authorized, script will store a token in user home
@@ -115,6 +115,8 @@ def main():
 # debugging
       print "uploading single file: ", TARGET
       upload_file(TARGET, params.verbose, params.tags) #TODO: write
+      remove_temp_file(TARGET)
+
       #function
 
 
@@ -139,7 +141,7 @@ def upload_dir(TARGET, SET_NAME, tags, verbose):
   #print "os.listdir(TARGET)[0:]:",os.listdir(TARGET)[0:]
   #print "os.listdir(TARGET)[1:]:",os.listdir(TARGET)[1:]
   filename = os.listdir(TARGET)[0]
-  photo_id = upload_file(filename, verbose, TAGS)
+  photo_id = upload_file(TARGET + filename, verbose, TAGS)
   remove_temp_file(filename)
   if SET_NAME:
     if photo_id != -1:
@@ -164,7 +166,8 @@ def upload_dir(TARGET, SET_NAME, tags, verbose):
 
   for filename in os.listdir(TARGET)[1:]:
 # upload all the files
-    photo_id = upload_file(filename, verbose, TAGS)
+    photo_id = upload_file(TARGET+filename, verbose, TAGS)
+    remove_temp_file(filename)
     if SET_NAME:
 # if set title was passed in, add file to set
       try:
@@ -175,8 +178,11 @@ def upload_dir(TARGET, SET_NAME, tags, verbose):
 
 
 
-def remove_temp_file(filename):
+def remove_temp_file(filepath):
+  filename= filepath.split('/')[-1]
   filename_split = filename.split('.')
+  tempfileName = filename_split[0] + '.mp4'
+  print "removing temp file", TEMP_FOLDER + tempfileName
   if len(filename_split) == 2:
     # file has extension
     ext = filename_split[1].lower()
@@ -193,14 +199,14 @@ def remove_temp_file(filename):
     print "ERROR. temporary file folder (",TEMP_FOLDER,") could not be ",
     "found. temp file could not be deleted. hopefully you deleted the temp",
     " folder?"
-  os.remove(TEMP_FOLDER + filename+'.mp4')
+  os.remove(TEMP_FOLDER + tempfileName)
 
 
 def upload_file(filepath, verbose, TAGS):
   global TARGET
   filename = filepath.split('/')[-1]
   filename_split = filename.split('.')
-  tempfileName = filename + '.mp4'
+  tempfileName = filename_split[0] + '.mp4'
   print "uploading file: ", filename
 
   if len(filename_split) == 2:
@@ -248,9 +254,6 @@ def upload_file(filepath, verbose, TAGS):
       #print "response:",uploadResp
     #TODO: log errors and progress somewhere
   return photo_id
-
-
-
 
 
 main()
